@@ -1,4 +1,4 @@
-Attribute VB_Name = "GrundbruchLHAP"
+Attribute VB_Name = "BearingCapacityModul"
 Function Grundbruch(c, phi, gamma, q_soil, t_soil, B, Optional L = 0, Optional omega = 0, Optional eB = 0, Optional eL = 0, Optional beta = 0, Optional alpha = 0, Optional Fresb = 0)
 Attribute Grundbruch.VB_Description = "Berechnet die zulässige Bodenpressung in [kN] aufgrund der angegebenen Bodenparametern, Fundamentgeometrie und Belastungsrichtung"
 Attribute Grundbruch.VB_ProcData.VB_Invoke_Func = " \n1"
