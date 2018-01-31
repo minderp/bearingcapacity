@@ -1,21 +1,21 @@
 Attribute VB_Name = "GrundbruchLHAP"
 Function Grundbruch(c, phi, gamma, q_soil, t_soil, B, Optional L = 0, Optional omega = 0, Optional eB = 0, Optional eL = 0, Optional beta = 0, Optional alpha = 0, Optional Fresb = 0)
-Attribute Grundbruch.VB_Description = "Berechnet die zulässige Bodenpressung in [kN] aufgrund der angegebenen Bodenparametern, Fundamentgeometrie und Belastungsrichtung"
+Attribute Grundbruch.VB_Description = "Berechnet die zulÃ¤ssige Bodenpressung in [kN] aufgrund der angegebenen Bodenparametern, Fundamentgeometrie und Belastungsrichtung"
 Attribute Grundbruch.VB_ProcData.VB_Invoke_Func = " \n1"
-'   FuncDesc = "Berechnet die zulässige Bodenpressung in [kN] aufgrund der angegebenen Bodenparametern, Fundamentgeometrie und Belastungsrichtung"
-'   ArgDesc(1) = "Kohäsion in kPa"
+'   FuncDesc = "Berechnet die zulÃ¤ssige Bodenpressung in [kN] aufgrund der angegebenen Bodenparametern, Fundamentgeometrie und Belastungsrichtung"
+'   ArgDesc(1) = "KohÃ¤sion in kPa"
 '   ArgDesc(2) = "Reibungswinkel in Grad "
-'   ArgDesc(3) = "Bodengewicht unter Fundament kN/m3”
+'   ArgDesc(3) = "Bodengewicht unter Fundament kN/m3â€
 '   ArgDesc(4) = "Auflast neben Fundament auf Niveau Sohle (inkl. Bodengewicht) in kPa"
 '   ArgDesc(5) = "Einbindetiefe (Abstand OKT zur Sohle) in m"
 '   ArgDesc(6) = "Breite des Fundaments in Versagensrichtung in m"
 '   ArgDesc(8) = "Abweichung der Kraftrichtung zur Vertikalen in Grad [Default=0]"
-'   ArgDesc(7) = "Länge des Fundaments quer zur Versagensrichtung in m [Default=0]"
-'   ArgDesc(9) = "Exzentrizität der Resultierenden in Versagensrichtung in m [Default=0]"
-'   ArgDesc(10) = "Exzentrizität der Resultierenden quer zur Versagensrichtung in m [Default=0]"
-'   ArgDesc(11) = "Geländeneigung in Grad [Default=0]"
+'   ArgDesc(7) = "LÃ¤nge des Fundaments quer zur Versagensrichtung in m [Default=0]"
+'   ArgDesc(9) = "ExzentrizitÃ¤t der Resultierenden in Versagensrichtung in m [Default=0]"
+'   ArgDesc(10) = "ExzentrizitÃ¤t der Resultierenden quer zur Versagensrichtung in m [Default=0]"
+'   ArgDesc(11) = "GelÃ¤ndeneigung in Grad [Default=0]"
 '   ArgDesc(12) = "Sohlneigung in Grad [Default=0]"
-'   ArgDesc(13) = "Betrag der resultierenden Einwirkung in Versagensebene, nötig falls c>0"
+'   ArgDesc(13) = "Betrag der resultierenden Einwirkung in Versagensebene, nÃ¶tig falls c>0"
 Const PI As Double = 3.14159265358979
 '
 'Normparameter
@@ -27,10 +27,10 @@ phid = Atn(Tan(phi / 180 * PI) / gamma_phi) 'Friction angle design [rad]
 gammad = gamma / gamma_g 'density design [kN/m3]
 'Inputparameter
 
-'------ Fundamentneigung, Böschungsneigung und Lastneigung können nur in "b"-Richtung berücksichtigt werden.
-'------ alpha, beta und omega sind nur eingeschränkt gültig. Für werte ausserhalb des
-'------ Gültigkeitsbereichs werden folgende konservativen Annahmen getroffen
-'------ Auch die Exzentrizität infolge Moment oder Verschobener Resultierenden ist nur für ungünstige Kombinationen definiert.
+'------ Fundamentneigung, BÃ¶schungsneigung und Lastneigung kÃ¶nnen nur in "b"-Richtung berÃ¼cksichtigt werden.
+'------ alpha, beta und omega sind nur eingeschrÃ¤nkt gÃ¼ltig. FÃ¼r werte ausserhalb des
+'------ GÃ¼ltigkeitsbereichs werden folgende konservativen Annahmen getroffen
+'------ Auch die ExzentrizitÃ¤t infolge Moment oder Verschobener Resultierenden ist nur fÃ¼r ungÃ¼nstige Kombinationen definiert.
 beff = Application.Max(0, B - 2 * Abs(eB))
 leff = Application.Max(0, L - 2 * Abs(eL))
 If L = 0 Then 'unendliches Streifenfundament-> Output ist in [kN/m]
@@ -42,7 +42,7 @@ omega = Application.Max(0, omega)
 
 If c > 0 Then
  If Fresb = 0 And omega - alpha = 0 Then
-  Grundbau = "Für c>0 muss infolge Lastneigung zur Sohle ein Kraftbetrag angegeben werden."
+  Grundbau = "FÃ¼r c>0 muss infolge Lastneigung zur Sohle ein Kraftbetrag angegeben werden."
  End If
  R = Fresb
 Else
@@ -93,20 +93,20 @@ Sub DescribeFunction1()
    Dim ArgDesc(1 To 13) As String
     FuncName = "Grundbruch"
     
-   FuncDesc = "Berechnet die zulässige Bodenpressung in [kN] aufgrund der angegebenen Bodenparametern, Fundamentgeometrie und Belastungsrichtung"
-   ArgDesc(1) = "Kohäsion in kPa"
+   FuncDesc = "Berechnet die zulÃ¤ssige Bodenpressung in [kN] aufgrund der angegebenen Bodenparametern, Fundamentgeometrie und Belastungsrichtung"
+   ArgDesc(1) = "KohÃ¤sion in kPa"
    ArgDesc(2) = "Reibungswinkel in Grad "
-   ArgDesc(3) = "Bodengewicht unter Fundament kN/m3”"
+   ArgDesc(3) = "Bodengewicht unter Fundament kN/m3â€"
    ArgDesc(4) = "Auflast neben Fundament auf Niveau Sohle (inkl. Bodengewicht) in kPa"
    ArgDesc(5) = "Einbindetiefe (Abstand OKT zur Sohle) in m"
    ArgDesc(6) = "Breite des Fundaments in Versagensrichtung in m"
    ArgDesc(8) = "Abweichung der Kraftrichtung zur Vertikalen in Grad [Default=0]"
-   ArgDesc(7) = "Länge des Fundaments quer zur Versagensrichtung in m [Default=0]"
-   ArgDesc(9) = "Exzentrizität der Resultierenden in Versagensrichtung in m [Default=0]"
-   ArgDesc(10) = "Exzentrizität der Resultierenden quer zur Versagensrichtung in m [Default=0]"
-   ArgDesc(11) = "Geländeneigung in Grad [Default=0]"
+   ArgDesc(7) = "LÃ¤nge des Fundaments quer zur Versagensrichtung in m [Default=0]"
+   ArgDesc(9) = "ExzentrizitÃ¤t der Resultierenden in Versagensrichtung in m [Default=0]"
+   ArgDesc(10) = "ExzentrizitÃ¤t der Resultierenden quer zur Versagensrichtung in m [Default=0]"
+   ArgDesc(11) = "GelÃ¤ndeneigung in Grad [Default=0]"
    ArgDesc(12) = "Sohlneigung in Grad [Default=0]"
-   ArgDesc(13) = "Betrag der resultierenden Einwirkung in Versagensebene, nötig falls c>0"
+   ArgDesc(13) = "Betrag der resultierenden Einwirkung in Versagensebene, nÃ¶tig falls c>0"
     
     
     Category = 1 '1=??
@@ -118,9 +118,9 @@ Sub DescribeFunction1()
 End Sub
 
 Function initialize(ist)
- If ist <> "Beschreibung hinzugefügt" Then
+ If ist <> "Beschreibung hinzugefÃ¼gt" Then
   DescribeFunction1
-  initialize = "Beschreibung hinzugefügt"
+  initialize = "Beschreibung hinzugefÃ¼gt"
  Else
   initialize = "Beschreibung bereits vorhanden"
  End If
