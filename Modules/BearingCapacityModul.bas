@@ -2,7 +2,7 @@ Attribute VB_Name = "BearingCapacityModul"
 Dim VersionStringG As String
 Dim initializedState As String
 Public Function VersionG()
-VersionStringG = "Version 0.04, 2018-01-31"
+VersionStringG = "Version 0.1.0, 2018-02-01"
 VersionG = VersionStringG
 End Function
 
@@ -376,8 +376,18 @@ If initializedState <> "Beschreibung hinzugefügt" Then
     BearingCapacityModul.DescribeFunction2
     BearingCapacityModul.DescribeFunction3
     BearingCapacityModul.DescribeFunction4
-    MsgBox ("Makros initialisiert")
     initializedState = "Beschreibung hinzugefügt"
+    someVal = ActiveWorkbook.Worksheets("Rechteckfundament").Cells(1, 7).Value
+    If Left(someVal, 4) = "Vers" Then
+     ActiveWorkbook.Worksheets("Rechteckfundament").Cells(1, 7).Value = VersionG
+     '     ActiveWorkbook.Worksheets(Rechteckfundament).Cells(1, 7).Value = "=initialize()"
+    End If
+    someVal = ActiveWorkbook.Worksheets("Streifenfundament").Cells(1, 7).Value
+    If Left(someVal, 4) = "Vers" Then
+     ActiveWorkbook.Worksheets("Streifenfundament").Cells(1, 7).Value = VersionG
+     '     ActiveWorkbook.Worksheets("Streifenfundament").Cells(1, 7).Value = "=initialize()"
+    End If
+    MsgBox ("Makros initialisiert")
 End If
 Initialize = VersionG
 End Function

@@ -1,15 +1,17 @@
 Attribute VB_Name = "DevTools"
-Public Sub ExportSourceFiles(Optional destPath As String)
+Public Sub ExportSourceFiles() 'Optional destPath As String)
 'go to in VBA Editor(Extras/Tools)->(Verweise/References)-> check on "Microsoft Visual Basic for Application Extensibility 5.3"
 'also necessary https://support.microsoft.com/de-at/help/813969/you-may-receive-an-run-time-error-when-you-programmatically-allow-acce
 'see image in documentation folder
 
-destPath = "U:\Tools\Fundation_VBA\" 'comment out if used with argument
+destPath = "U:\Tools\Fundation_VBA\Modules\" 'comment out if used with argument
+'destPath == "C:\xLocal\2000_Tools\Fundation_VBA\Modules\"
 Dim component As VBComponent
 For Each component In Application.VBE.ActiveVBProject.VBComponents
-If component.Type = vbext_ct_ClassModule Or component.Type = vbext_ct_StdModule Then
-component.Export destPath & component.Name & ToFileExtension(component.Type)
-End If
+    If component.Type = vbext_ct_ClassModule Or component.Type = vbext_ct_StdModule Then
+        component.Export destPath & component.Name & ToFileExtension(component.Type)
+        Debug.Print "Exporting: "; destPath & component.Name & ToFileExtension(component.Type)
+    End If
 Next
  
 End Sub
@@ -36,17 +38,22 @@ Set project = Application.VBE.ActiveVBProject
 Dim comp As VBComponent
 For Each comp In project.VBComponents
 If Not comp.Name = "DevTools" And (comp.Type = vbext_ct_ClassModule Or comp.Type = vbext_ct_StdModule) Then
-project.VBComponents.Remove comp
+    Debug.Print "Removing component: " & comp.Name
+    project.VBComponents.Remove comp
 End If
 Next
 End Sub
-Public Sub ImportSourceFiles(Optional sourcePath As String)
+Public Sub ImportSourceFiles() 'Optional sourcePath As String)
 '
-sourcePath = "U:\Tools\Fundation_VBA\" 'comment out if used with argument
+sourcePath = "U:\Tools\Fundation_VBA\Modules\" 'comment out if used with argument
+'sourcePath = "C:\xLocal\2000_Tools\Fundation_VBA\Modules\" 'comment out if used with argument
 Dim file As String
 file = Dir(sourcePath)
 While (file <> vbNullString)
-Application.VBE.ActiveVBProject.VBComponents.Import sourcePath & file
-file = Dir
+    If Not file = "DevTools.bas" Then
+        Application.VBE.ActiveVBProject.VBComponents.Import sourcePath & file
+        Debug.Print "Importing: "; sourcePath & file
+    End If
+    file = Dir
 Wend
 End Sub
