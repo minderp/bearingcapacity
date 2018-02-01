@@ -2,7 +2,7 @@ Attribute VB_Name = "BearingCapacityModul"
 Dim VersionStringG As String
 Dim initializedState As String
 Public Function VersionG()
-VersionStringG = "Version 0.1.0, 2018-02-01"
+VersionStringG = "Version 0.1.1, 2018-02-01"
 VersionG = VersionStringG
 End Function
 
@@ -119,7 +119,7 @@ dgamma = 1
 iq = (1 - 0.5 * T / (N + beff * aeff * cd / Tan(phid))) ^ 5
 igamma = (1 - (0.7 - alpha / 450) * T / (N + beff * aeff * cd / Tan(phid))) ^ 5
 'igamma = (1 - (0.7 - 2 * alpha / (5 * PI)) * T / (N + beff * aeff * cd / Tan(phid))) ^ 5 'Gleichung angepasst auf alpha in Radiant
-ic = 1 - (1 - iq) / (Nq - 1)
+ic = iq - (1 - iq) / (Nq - 1)
 '
 'Gelaendeneigung
 gc = 1 - beta / 147
