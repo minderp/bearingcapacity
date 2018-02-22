@@ -143,14 +143,14 @@ End Function
 Function Grundbruch_H_Rechteck(c, phi, gamma, q_soil, t_soil, b, a, Ed_z, _
 Optional eB = 0, Optional eA = 0, _
 Optional beta = 0, Optional alpha = 0)
-Attribute Grundbruch_H_Rechteck.VB_Description = "Berechnet die zulässige Horizontalkraft RT,d für eine gegebende Vertikalkraft Ed,z in [kN] aufgrund der angegebenen Bodenparametern, Fundamentgeometrie und Belastungsrichtung"
+Attribute Grundbruch_H_Rechteck.VB_Description = "Berechnet die zulässige Horizontalkraft RT,d für eine gegebene Vertikalkraft Ed,z in [kN] aufgrund der angegebenen Bodenparametern, Fundamentgeometrie und Belastungsrichtung"
 Attribute Grundbruch_H_Rechteck.VB_ProcData.VB_Invoke_Func = " \n14"
 'Gesucht ist die maximal zulässig Horizontalkraft für eine gegebene Vertikalkraft.
 'Dies ist ein Grundbruch- und kein Gleitnachweis.
 'Die Berechnung liefert nur eine Näherung.
 
 '   FuncName = "Grundbruch_H_Rechteck"
-'   FuncDesc = "Berechnet die zulässige Horizontalkraft RT,d für eine gegebende Vertikalkraft Ed,z in [kN] " & _
+'   FuncDesc = "Berechnet die zulässige Horizontalkraft RT,d für eine gegebene Vertikalkraft Ed,z in [kN] " & _
 '              "aufgrund der angegebenen Bodenparametern, Fundamentgeometrie und Belastungsrichtung"
 '   ArgDesc(1) = "Kohäsion in kPa"
 '   ArgDesc(2) = "Reibungswinkel in Grad "
@@ -208,14 +208,14 @@ Grundbruch_Streifen = Grundbruch_Rechteck(c, phi, gamma, q_soil, t_soil, b, "Str
 End Function
 Function Grundbruch_H_Streifen(c, phi, gamma, q_soil, t_soil, b, Ed_z, _
 Optional eB = 0, Optional beta = 0, Optional alpha = 0)
-Attribute Grundbruch_H_Streifen.VB_Description = "Berechnet die zulässige Horizontalkraft RT,d für eine gegebende Vertikalkraft Ed,z in [kN] aufgrund der angegebenen Bodenparametern, Fundamentgeometrie und Belastungsrichtung"
+Attribute Grundbruch_H_Streifen.VB_Description = "Berechnet die zulässige Horizontalkraft RT,d für eine gegebene Vertikalkraft Ed,z in [kN] aufgrund der angegebenen Bodenparametern, Fundamentgeometrie und Belastungsrichtung"
 Attribute Grundbruch_H_Streifen.VB_ProcData.VB_Invoke_Func = " \n14"
 'Gesucht ist die maximal zulässig Horizontalkraft für eine gegebene Vertikalkraft.
 'Dies ist ein Grundbruch- und kein Gleitnachweis.
 'Die Berechnung liefert nur eine Näherung.
 
 '   FuncName = "Grundbruch_H_Streifen"
-'   FuncDesc = "Berechnet die zulässige Horizontalkraft RT,d für eine gegebende Vertikalkraft Ed,z "& _
+'   FuncDesc = "Berechnet die zulässige Horizontalkraft RT,d für eine gegebene Vertikalkraft Ed,z "& _
 '              "in [kN] aufgrund der angegebenen Bodenparametern, Fundamentgeometrie und Belastungsrichtung"
 '   ArgDesc(1) = "Kohäsion in kPa"
 '   ArgDesc(2) = "Reibungswinkel in Grad "
@@ -283,7 +283,7 @@ Sub DescribeFunction2()
    Dim ArgDesc(1 To 12) As String
    
    FuncName = "Grundbruch_H_Rechteck"
-   FuncDesc = "Berechnet die zulässige Horizontalkraft RT,d für eine gegebende Vertikalkraft Ed,z in [kN] " & _
+   FuncDesc = "Berechnet die zulässige Horizontalkraft RT,d für eine gegebene Vertikalkraft Ed,z in [kN] " & _
               "aufgrund der angegebenen Bodenparametern, Fundamentgeometrie und Belastungsrichtung"
    ArgDesc(1) = "Kohäsion in kPa"
    ArgDesc(2) = "Reibungswinkel in Grad "
@@ -344,7 +344,7 @@ Sub DescribeFunction4()
    Dim ArgDesc(1 To 10) As String
 
    FuncName = "Grundbruch_H_Streifen"
-   FuncDesc = "Berechnet die zulässige Horizontalkraft RT,d für eine gegebende Vertikalkraft Ed,z in [kN] aufgrund der angegebenen Bodenparametern, Fundamentgeometrie und Belastungsrichtung"
+   FuncDesc = "Berechnet die zulässige Horizontalkraft RT,d für eine gegebene Vertikalkraft Ed,z in [kN] aufgrund der angegebenen Bodenparametern, Fundamentgeometrie und Belastungsrichtung"
    ArgDesc(1) = "Kohäsion in kPa"
    ArgDesc(2) = "Reibungswinkel in Grad "
    ArgDesc(3) = "Effektives Bodengewicht unter Fundament kN/m3 (\gamma für trockener Boden, \gamma' bei Grundwasser bis Sohle)"
