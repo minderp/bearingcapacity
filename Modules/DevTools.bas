@@ -45,15 +45,16 @@ Next
 End Sub
 Public Sub ImportSourceFiles() 'Optional sourcePath As String)
 '
-sourcePath = "U:\Tools\Fundation_VBA\Modules\" 'comment out if used with argument
+SourcePath = "U:\Tools\Fundation_VBA\Modules\" 'comment out if used with argument
 'sourcePath = "C:\xLocal\2000_Tools\Fundation_VBA\Modules\" 'comment out if used with argument
 Dim file As String
-file = Dir(sourcePath)
+file = Dir(SourcePath)
 While (file <> vbNullString)
     If Not file = "DevTools.bas" Then
-        Application.VBE.ActiveVBProject.VBComponents.Import sourcePath & file
-        Debug.Print "Importing: "; sourcePath & file
+        Application.VBE.ActiveVBProject.VBComponents.Import SourcePath & file
+        Debug.Print "Importing: "; SourcePath & file
     End If
     file = Dir
 Wend
 End Sub
+
