@@ -377,14 +377,14 @@ If initializedState <> "Beschreibung hinzugefügt" Then
     BearingCapacityModul.DescribeFunction3
     BearingCapacityModul.DescribeFunction4
     initializedState = "Beschreibung hinzugefügt"
-    someVal = ActiveWorkbook.Worksheets("Rechteckfundament").Cells(1, 7).Value
+    someVal = ActiveWorkbook.Worksheets(2).Cells(1, 7).Value
     If Left(someVal, 4) = "Vers" Then
-     ActiveWorkbook.Worksheets("Rechteckfundament").Cells(1, 7).Value = VersionG
+     ActiveWorkbook.Worksheets(2).Cells(1, 7).Value = VersionG
      '     ActiveWorkbook.Worksheets(Rechteckfundament).Cells(1, 7).Value = "=initialize()"
     End If
-    someVal = ActiveWorkbook.Worksheets("Streifenfundament").Cells(1, 7).Value
+    someVal = ActiveWorkbook.Worksheets(1).Cells(1, 7).Value
     If Left(someVal, 4) = "Vers" Then
-     ActiveWorkbook.Worksheets("Streifenfundament").Cells(1, 7).Value = VersionG
+     ActiveWorkbook.Worksheets(1).Cells(1, 7).Value = VersionG
      '     ActiveWorkbook.Worksheets("Streifenfundament").Cells(1, 7).Value = "=initialize()"
     End If
     MsgBox ("Makros initialisiert")
