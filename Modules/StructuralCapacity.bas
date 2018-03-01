@@ -1,9 +1,9 @@
 Attribute VB_Name = "StructuralCapacity"
-Dim VersionStringG As String
+Dim VersionStringG_SC As String
 Dim initializedState As String
-Public Function VersionG()
-VersionStringG = "Version 0.02, 2018-01-20"
-VersionG = VersionStringG
+Public Function VersionG_SC()
+VersionStringG_SC = "Version 0.0.2, 2018-03-01"
+VersionG_SC = VersionStringG_SC
 End Function
 
 Public Sub testfunction()
@@ -689,9 +689,18 @@ BMV_Q = Q
 End Function
 ' Helperfunctions
 '-------------------------------------------------------------------------------------------------------
-Private Function fShape(ByVal width, ByVal length)
+Public Function fShape(ByVal width, ByVal length)
 '[Bild 11.10 aus LHAP]
-fShape = 1.8 'provisorisch
+x = Log(length / width)
+If x <= Log(14.42) Then
+    a = -0.02311323
+    b = 0.00861731
+    c = 0.44775579
+    fShape = a * x ^ 3 + b * x ^ 2 + c * x + 1
+Else
+    fShape = 1.817
+End If
+'fShape = 1.8 'provisorisch
 End Function
 Private Function SetCoefficientsFiniteBeam(ByVal ForcePosition, ByVal PositionEnd, ByVal Lelast, _
 ByRef A1, ByRef A2, ByRef A3, ByRef A4, ByRef B1, ByRef B2, ByRef B3, ByRef B4) As Boolean
@@ -937,7 +946,7 @@ If initializedState <> "Beschreibung hinzugefügt" Then
     MsgBox ("Makros initialisiert")
     initializedState = "Beschreibung hinzugefügt"
 End If
-Initialize = VersionG
+Initialize = VersionG_SC
 End Function
 
 
